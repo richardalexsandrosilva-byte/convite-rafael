@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+</head>
+<body style="margin:0">
+<title>Rafael 17 no Kaishi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
+<style>
+/* Layout: shōnen-cover energy — hazard stripes, burst and original crew behind; content as thick-bordered comic panels with hard shadows, slightly tilted. Single deliberate look. */
+:root{
+  --yellow:#ffd23f;
+  --ink:#10121f;
+  --red:#ff3b2f;
+  --cyan:#22c3e6;
+  --paper:#fff8ec;
+  --mute:#5b5f78;
+  --display:"Dela Gothic One","Hiragino Sans","Arial Black",system-ui,sans-serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+html{background:var(--yellow)}
+body{background:var(--yellow);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;min-height:100%;overflow-x:hidden}
+
+/* Background */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.burst{position:absolute;inset:-20%;background:repeating-conic-gradient(from 0deg at 50% 38%,rgba(255,255,255,.42) 0deg 5deg,transparent 5deg 13deg)}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(16,18,31,.22) 1.3px,transparent 1.7px);background-size:9px 9px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 40%,transparent 30%,#000 75%);mask-image:radial-gradient(ellipse at 50% 40%,transparent 30%,#000 75%)}
+.hazard{position:absolute;left:-30%;width:160%;height:44px;border-block:4px solid var(--ink);transform:rotate(-12deg);
+  background:repeating-linear-gradient(-45deg,var(--ink) 0 18px,var(--yellow) 18px 36px)}
+.hazard.h1{top:14%}.hazard.h2{bottom:16%}
+.crew svg{position:absolute;height:auto;overflow:visible;filter:drop-shadow(5px 5px 0 rgba(16,18,31,.35))}
+.c1{left:-38px;top:200px;width:clamp(140px,30vw,250px);transform:rotate(9deg)}
+.c2{right:-36px;top:170px;width:clamp(140px,30vw,250px);transform:rotate(-8deg)}
+.c3{left:-52px;top:44%;width:clamp(140px,28vw,240px);transform:rotate(6deg)}
+.c4{right:-52px;top:52%;width:clamp(140px,28vw,240px);transform:rotate(-7deg)}
+.c5{left:-26px;bottom:-34px;width:clamp(150px,32vw,270px);transform:rotate(4deg)}
+.c6{right:-8px;bottom:6px;width:clamp(120px,24vw,200px);transform:rotate(-6deg)}
+.bob{animation:bob 3.2s ease-in-out infinite}
+.c2.bob,.c4.bob{animation-delay:-1.6s}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -8px}}
+
+.wrap{position:relative;z-index:1;max-width:600px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  min-height:100%;padding-block:clamp(10px,2.2vh,28px);display:flex;flex-direction:column;justify-content:space-between;gap:clamp(8px,1.8vh,20px)}
+
+/* Hero */
+.ribbon{align-self:center;background:var(--ink);color:var(--yellow);font-family:var(--display);font-size:clamp(14px,min(4.4vw,2.4vh),20px);
+  padding:6px 16px;transform:rotate(-3deg);box-shadow:5px 5px 0 var(--red);text-align:center}
+.ribbon small{display:block;font-family:var(--body);font-weight:900;font-size:11px;letter-spacing:.22em;color:#fff;text-transform:uppercase}
+.name{margin:6px 0 0;text-align:center;font-family:var(--display);font-weight:400;font-size:clamp(52px,min(22vw,11.5vh),140px);line-height:.95;letter-spacing:.02em;
+  color:#fff;-webkit-text-stroke:5px var(--ink);paint-order:stroke fill;text-shadow:7px 7px 0 var(--red),7px 7px 0 var(--ink);
+  transform:rotate(-5deg);animation:slam .6s cubic-bezier(.2,1.5,.4,1) both}
+@keyframes slam{from{transform:scale(1.8) rotate(-12deg);opacity:0}to{transform:scale(1) rotate(-5deg);opacity:1}}
+.hero-row{display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,20px);margin-top:clamp(4px,1.4vh,14px)}
+.b17{width:clamp(78px,12.5vh,118px);height:clamp(78px,12.5vh,118px);flex:none;filter:drop-shadow(0 0 0 var(--ink)) drop-shadow(4px 4px 0 var(--ink));animation:spin 14s linear infinite}
+.b17 div{width:100%;height:100%;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  clip-path:polygon(50% 0,61% 13%,77% 6%,79% 23%,95% 25%,88% 40%,100% 50%,88% 60%,95% 75%,79% 77%,77% 94%,61% 87%,50% 100%,39% 87%,23% 94%,21% 77%,5% 75%,12% 60%,0 50%,12% 40%,5% 25%,21% 23%,23% 6%,39% 13%)}
+.b17 b{font-family:var(--display);font-size:clamp(28px,5vh,46px);line-height:.9;font-weight:400}
+.b17 span{font-weight:900;font-size:clamp(9px,1.4vh,12px);letter-spacing:.12em}
+@keyframes spin{to{rotate:360deg}}
+.b17 div{animation:spin 14s linear infinite reverse}
+.bubble{position:relative;background:#fff;border:4px solid var(--ink);border-radius:20px;padding:clamp(8px,1.3vh,12px) 14px;max-width:220px;font-weight:900;font-size:clamp(13px,2vh,16px);margin:0;line-height:1.35;box-shadow:5px 5px 0 var(--ink)}
+.bubble::before{content:"";position:absolute;left:-18px;top:50%;width:22px;height:22px;background:#fff;border-left:4px solid var(--ink);border-bottom:4px solid var(--ink);transform:translateY(-50%) rotate(45deg) skew(10deg,10deg)}
+.bubble em{font-style:normal;font-family:var(--display);color:var(--red)}
+
+/* Panels */
+.lbl{font-weight:900;font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:block}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.7vh,16px)}
+.tile{border:4px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:clamp(7px,1.3vh,14px) 14px;min-width:0}
+.wide{grid-column:1/-1}
+.t-date{background:var(--red);color:#fff;transform:rotate(-1.6deg)}
+.t-time{background:var(--cyan);transform:rotate(1.6deg)}
+.t-date b,.t-time b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(28px,min(10vw,5.6vh),54px);line-height:1.05;margin-top:2px}
+.t-date .sub,.t-time .sub{font-weight:900;font-size:14px}
+.t-count{background:var(--ink);color:#fff}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:clamp(4px,1vh,10px);text-align:center}
+.cd div{border:2px solid rgba(255,210,63,.5);padding:clamp(2px,.8vh,8px) 2px}
+.cd b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(20px,min(7.5vw,4.2vh),36px);color:var(--yellow);font-variant-numeric:tabular-nums;line-height:1.1}
+.cd span{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.count-done{font-family:var(--display);color:var(--yellow);font-size:24px;margin:10px 0 0}
+.t-place{background:var(--paper)}
+.t-place h3{font-family:var(--display);font-weight:400;font-size:clamp(18px,3vh,26px);margin:2px 0 0}
+.t-place p{margin:0 0 clamp(6px,1.2vh,12px);font-size:clamp(13px,1.9vh,15px);line-height:1.4}
+.t-place .btn{min-height:clamp(38px,5.2vh,48px);font-size:14px;padding:0 14px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;font:900 15px var(--body);text-decoration:none;cursor:pointer;
+  border:3px solid var(--ink);background:#fff;color:var(--ink);box-shadow:4px 4px 0 var(--ink);transition:transform .08s,box-shadow .08s}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.btn:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.btn.primary{background:var(--red);color:#fff;font-size:16px;min-height:56px}
+
+/* RSVP */
+.rsvp{background:var(--paper);border:4px solid var(--ink);box-shadow:9px 9px 0 var(--ink);position:relative;padding:46px 18px 20px;margin-top:10px;display:flex;flex-direction:column;gap:16px}
+.rsvp-head{position:absolute;top:-22px;left:14px;right:14px;background:var(--ink);color:var(--yellow);font-family:var(--display);font-size:clamp(17px,5vw,22px);padding:8px 14px;transform:rotate(-1.5deg);display:flex;justify-content:space-between;gap:10px}
+.rsvp-head span{color:#fff}
+.note{font-size:13.5px;color:var(--mute);margin:0}
+.rsvp label{font-weight:900;font-size:14px;display:block;margin-bottom:6px}
+.rsvp input[type=text],.rsvp textarea{width:100%;font:16px var(--body);padding:12px 14px;border:3px solid var(--ink);background:#fff;color:var(--ink)}
+.rsvp input:focus,.rsvp textarea:focus{outline:3px solid var(--cyan);outline-offset:1px}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice label{margin:0;border:3px solid var(--ink);padding:14px 8px;text-align:center;cursor:pointer;font-weight:900;display:flex;flex-direction:column;gap:2px;background:#fff;box-shadow:4px 4px 0 var(--ink)}
+.choice label small{font-weight:500;font-size:12.5px;color:var(--mute)}
+.choice input:checked + label{background:var(--yellow);transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.choice input:focus-visible + label{outline:3px solid var(--cyan);outline-offset:2px}
+.stepper{display:flex;align-items:center;gap:12px}
+.stepper button{width:46px;height:46px;border:3px solid var(--ink);background:#fff;font:900 22px var(--body);color:var(--ink);cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.stepper output{font-family:var(--display);font-size:32px;min-width:2ch;text-align:center;font-variant-numeric:tabular-nums}
+.err{color:var(--red);font-weight:900;font-size:14px;margin:0}
+.phone{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px;font-weight:700;border-top:3px dashed var(--ink);padding-top:14px}
+.phone code{font:900 15px var(--body);user-select:all;background:var(--yellow);padding:4px 10px;border:2px solid var(--ink)}
+.phone button{font:900 13px var(--body);border:2px solid var(--ink);background:#fff;padding:6px 12px;cursor:pointer;color:var(--ink)}
+.done{text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}
+.done .big{font-family:var(--display);font-size:28px;margin:0}
+
+/* Owner */
+.owner{background:#fff;border:4px dashed var(--ink);padding:18px;display:flex;flex-direction:column;gap:12px}
+.owner h3{margin:0;font-family:var(--display);font-weight:400;font-size:22px}
+.tally{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;font-weight:700}
+.tally b{font-family:var(--display);font-weight:400;font-size:24px;color:var(--red)}
+.olist{list-style:none;margin:0;padding:0}
+.olist li{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:8px 0;border-bottom:2px solid #eee3cf}
+.pill{font-size:12px;padding:2px 10px;border:2px solid var(--ink);font-weight:900;background:var(--cyan)}
+.pill.no{background:#ddd}
+.olist button{border:0;background:none;cursor:pointer;font-size:20px;min-width:32px;min-height:32px;color:var(--ink)}
+.oform{display:grid;grid-template-columns:1fr 64px auto;gap:8px}
+.oform input{font:15px var(--body);padding:10px;border:3px solid var(--ink);min-width:0}
+.oform button{border:3px solid var(--ink);background:var(--ink);color:var(--yellow);font:900 14px var(--body);padding:0 14px;cursor:pointer}
+.empty{color:var(--mute);font-size:14px;margin:0}
+
+.cta{display:flex;flex-direction:column;align-items:center;gap:6px}
+.btn.big{width:100%;min-height:clamp(50px,7.5vh,64px);font-size:clamp(16px,2.4vh,19px);font-family:var(--display);font-weight:400;letter-spacing:.02em}
+.cta-note{font-weight:900;font-size:13px;background:var(--ink);color:var(--yellow);padding:2px 10px}
+.btn.small{min-height:36px;font-size:13px;padding:0 12px;box-shadow:3px 3px 0 var(--ink)}
+.sheet{position:fixed;inset:0;z-index:20;background:rgba(16,18,31,.6);display:flex;align-items:flex-end;justify-content:center;
+  padding:env(safe-area-inset-top,0px) max(10px,env(safe-area-inset-right,0px)) 0 max(10px,env(safe-area-inset-left,0px))}
+.sheet-in{position:relative;width:100%;max-width:600px;max-height:100%;overflow-y:auto;padding:46px 10px calc(18px + env(safe-area-inset-bottom,0px));animation:up .25s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.x{position:absolute;top:6px;right:8px;z-index:2;width:40px;height:40px;border:3px solid var(--ink);background:var(--yellow);font:900 22px/1 var(--body);color:var(--ink);cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.owner{background:#fff;border-style:solid}
+footer{text-align:center}
+footer b{display:inline-block;font-family:var(--display);font-weight:400;font-size:32px;background:var(--ink);color:var(--yellow);padding:6px 18px;transform:rotate(3deg);box-shadow:5px 5px 0 var(--red)}
+
+@media (prefers-reduced-motion:reduce){.name,.b17,.b17 div,.bob{animation:none}}
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="burst"></div>
+  <div class="hazard h1"></div>
+  <div class="hazard h2"></div>
+  <div class="dots"></div>
+  <div class="crew" id="crew"></div>
+</div>
+
+<div class="wrap">
+  <header>
+    <div style="display:flex;justify-content:center"><div class="ribbon">誕生日ランチ<small>Almoço de aniversário</small></div></div>
+    <h1 class="name">RAFAEL</h1>
+    <div class="hero-row">
+      <div class="b17" aria-label="17 anos"><div><b>17</b><span>ANOS · 歳</span></div></div>
+      <p class="bubble">Bora comemorar comigo com muito sushi! <em>乾杯!</em></p>
+    </div>
+  </header>
+
+  <section class="bento" aria-label="Data, hora e local">
+    <div class="tile t-date"><span class="lbl">日付 · Data</span><b>24/10</b><span class="sub">Sábado</span></div>
+    <div class="tile t-time"><span class="lbl">時間 · Hora</span><b>13H</b><span class="sub">Almoço</span></div>
+    <div class="tile t-count wide">
+      <span class="lbl">カウントダウン · Faltam</span>
+      <div class="cd" id="count">
+        <div><b id="cd-d">7</b><span>dias</span></div>
+        <div><b id="cd-h">00</b><span>horas</span></div>
+        <div><b id="cd-m">00</b><span>min</span></div>
+        <div><b id="cd-s">00</b><span>seg</span></div>
+      </div>
+      <p class="count-done" id="count-done" hidden>É HOJE! いただきます!</p>
+    </div>
+    <div class="tile t-place wide">
+      <span class="lbl">場所 · Local</span>
+      <h3>Kaishi Sushi</h3>
+      <p>R. Dr. Paulo Ferraz da Costa Aguiar, 1589<br>Vila Yara, Osasco – SP</p>
+      <div class="row">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Kaishi+Sushi+Osasco+Rua+Dr+Paulo+Ferraz+da+Costa+Aguiar+1589" target="_blank" rel="noopener">Abrir no mapa</a>
+        <a class="btn" href="https://waze.com/ul?q=Kaishi%20Sushi%20Osasco%20Rua%20Dr%20Paulo%20Ferraz%20da%20Costa%20Aguiar%201589" target="_blank" rel="noopener">Ir com Waze</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <button class="btn primary big" type="button" id="open-rsvp">Confirmar presença · 出欠!</button>
+    <span class="cta-note">Responda até terça, 20/10</span>
+    <button class="btn small" type="button" id="open-owner" hidden>Ver lista de confirmados</button>
+  </div>
+</div>
+
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="rsvp-h">
+ <div class="sheet-in">
+  <button class="x" type="button" data-close aria-label="Fechar">×</button>
+  <section class="rsvp" id="rsvp">
+    <h2 class="rsvp-head" id="rsvp-h">Confirme presença <span>出欠!</span></h2>
+    <p class="note">Responda até terça, 20/10, para garantirmos a reserva do almoço.</p>
+    <form id="form" novalidate>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div>
+          <label for="nome">Seu nome</label>
+          <input type="text" id="nome" autocomplete="name" placeholder="Ex.: Lucas Martins">
+        </div>
+        <div class="choice" role="radiogroup" aria-label="Você vai?">
+          <input type="radio" name="vai" id="vai-sim" value="sim" checked>
+          <label for="vai-sim">Tô dentro! 🍣<small>Pode contar comigo</small></label>
+          <input type="radio" name="vai" id="vai-nao" value="nao">
+          <label for="vai-nao">Não vou poder<small>Fica pra próxima</small></label>
+        </div>
+        <div id="qtd-box">
+          <label id="qtd-l">Quantas pessoas, contando você?</label>
+          <div class="stepper" aria-labelledby="qtd-l">
+            <button type="button" id="menos" aria-label="Menos uma pessoa">−</button>
+            <output id="qtd" aria-live="polite">1</output>
+            <button type="button" id="mais" aria-label="Mais uma pessoa">+</button>
+          </div>
+        </div>
+        <div>
+          <label for="msg">Recado para o Rafael <span style="font-weight:500;color:var(--mute)">(opcional)</span></label>
+          <textarea id="msg" rows="2" placeholder="Feliz aniversário!"></textarea>
+        </div>
+        <p class="err" id="err" hidden>Escreva seu nome para confirmar.</p>
+        <button class="btn primary" type="submit">Enviar confirmação pelo WhatsApp</button>
+        <p class="note">Vai abrir o WhatsApp com a mensagem pronta. É só tocar em enviar.</p>
+      </div>
+    </form>
+    <div class="done" id="done" hidden>
+      <p class="big" id="done-t">Arigatou!</p>
+      <p class="note">Se o WhatsApp não abriu, toque no botão abaixo ou mande a mensagem para o número indicado.</p>
+      <a class="btn primary" id="wa-again" href="#" target="_blank" rel="noopener">Abrir WhatsApp</a>
+      <button class="btn" type="button" id="edit">Alterar resposta</button>
+    </div>
+    <div class="phone">
+      <span>Confirmação no WhatsApp:</span>
+      <code id="fone">(11) 98342-9336</code>
+      <button type="button" id="copy">Copiar</button>
+    </div>
+  </section>
+ </div>
+</div>
+
+<div class="sheet" id="osheet" hidden role="dialog" aria-modal="true" aria-labelledby="owner-h">
+ <div class="sheet-in">
+  <button class="x" type="button" data-close aria-label="Fechar">×</button>
+  <section class="owner" id="owner">
+    <h3 id="owner-h">Lista de confirmados</h3>
+    <p class="note">Só você vê esta parte. Anote aqui as respostas que chegarem no WhatsApp.</p>
+    <div class="tally"><span><b id="t-pess">0</b> pessoas</span><span><b id="t-sim">0</b> confirmaram</span><span><b id="t-nao">0</b> não vão</span></div>
+    <form class="oform" id="oform">
+      <input type="text" id="o-nome" placeholder="Nome" aria-label="Nome do convidado">
+      <input type="number" id="o-qtd" min="0" max="20" value="1" aria-label="Pessoas">
+      <button type="submit">Anotar</button>
+    </form>
+    <ul class="olist" id="olist"></ul>
+    <p class="empty" id="o-empty">Nenhuma confirmação anotada ainda. Digite o nome e quantas pessoas vêm (0 para quem não vai).</p>
+  </section>
+ </div>
+</div>
+
+<script>
+(function(){
+  const PARTY = new Date("2026-10-24T13:00:00-03:00").getTime();
+  const PHONE = "5511983429336";
+  const $ = id => document.getElementById(id);
+  const pad = n => String(n).padStart(2,"0");
+
+  /* ---------- Original crew (drawn for this invite) ---------- */
+  const INK = "#10121f";
+  const S = `stroke="${INK}" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"`;
+  function hand(kind, x, y, skin){
+    if (kind === "peace") return `<g transform="translate(${x} ${y}) rotate(-12)">
+      <rect x="-10" y="-62" width="14" height="48" rx="7" fill="${skin}" ${S}/>
+      <rect x="6" y="-58" width="14" height="46" rx="7" fill="${skin}" ${S} transform="rotate(16 13 -14)"/>
+      <path d="M-18 -20 Q-20 16 4 18 Q28 16 26 -18 Q4 -12 -18 -20Z" fill="${skin}" ${S}/>
+      <path d="M-18 -6 Q-30 -12 -26 -24" fill="none" ${S}/></g>`;
+    if (kind === "fist") return `<g transform="translate(${x} ${y})">
+      <rect x="-24" y="-30" width="48" height="40" rx="13" fill="${skin}" ${S}/>
+      <path d="M-12 -30 v13 M0 -30 v13 M12 -30 v13" fill="none" ${S}/>
+      <path d="M-34 -44 l-10 -10 M0 -48 v-14 M34 -44 l10 -10" fill="none" ${S}/></g>`;
+    return `<g transform="translate(${x} ${y})">
+      <rect x="-20" y="-18" width="40" height="34" rx="11" fill="${skin}" ${S}/>
+      <rect x="-9" y="-52" width="16" height="40" rx="8" fill="${skin}" ${S}/></g>`;
+  }
+  function person(o){
+    let g = "";
+    g += `<path d="M18 236 Q30 168 100 162 Q170 168 182 236Z" fill="${o.shirt}" ${S}/>`;
+    if (o.stripe) g += `<path d="M40 200 Q100 186 160 200" fill="none" stroke="${o.stripe}" stroke-width="10"/>`;
+    g += `<path d="M84 148 h32 v20 q-16 10 -32 0z" fill="${o.skin}" ${S}/>`;
+    g += `<path d="M76 168 L100 192 L124 168" fill="none" ${S}/>`;
+    if (o.hair === "buns") g += `<circle cx="54" cy="48" r="23" fill="${o.hc}" ${S}/><circle cx="146" cy="48" r="23" fill="${o.hc}" ${S}/>`;
+    if (o.hair === "long") g += `<path d="M44 92 Q36 156 54 176 L146 176 Q164 156 156 92Z" fill="${o.hc}" ${S}/>`;
+    if (o.hair === "spiky") g += `<path d="M44 106 L18 72 L50 72 L36 32 L72 50 L82 8 L104 42 L128 10 L134 50 L168 32 L158 72 L184 74 L156 108 Z" fill="${o.hc}" ${S}/>`;
+    g += `<ellipse cx="48" cy="106" rx="8" ry="11" fill="${o.skin}" ${S}/><ellipse cx="152" cy="106" rx="8" ry="11" fill="${o.skin}" ${S}/>`;
+    g += `<path d="M50 92 Q50 152 100 158 Q150 152 150 92 Q150 50 100 48 Q50 50 50 92Z" fill="${o.skin}" ${S}/>`;
+    if (o.hair === "spiky") g += `<path d="M48 98 L56 58 L70 82 L80 50 L94 78 L106 46 L116 76 L130 52 L136 80 L148 62 L152 98 Q140 72 100 70 Q62 72 48 98Z" fill="${o.hc}" ${S}/>`;
+    if (o.hair === "buns" || o.hair === "long") g += `<path d="M48 100 Q46 44 100 42 Q154 44 152 100 L140 76 L128 88 L116 72 L100 86 L86 72 L74 88 L62 76Z" fill="${o.hc}" ${S}/>`;
+    if (o.hair === "short") g += `<path d="M50 94 Q48 42 100 40 Q152 42 150 94 Q144 68 122 62 L112 74 L104 60 Q70 60 50 94Z" fill="${o.hc}" ${S}/>`;
+    if (o.hair === "cap") g += `<path d="M48 88 Q50 36 100 36 Q150 36 152 88 Q100 72 48 88Z" fill="${o.hc}" ${S}/><path d="M44 86 Q20 92 14 82 Q30 70 52 76" fill="${o.hc}" ${S}/><circle cx="100" cy="38" r="5" fill="${INK}"/>`;
+    // eyes
+    const eye = (cx, c) => `<ellipse cx="${cx}" cy="108" rx="11" ry="15" fill="#fff" ${S}/><ellipse cx="${cx+1}" cy="110" rx="7" ry="10" fill="${c}"/><circle cx="${cx+3}" cy="105" r="3.2" fill="#fff"/>`;
+    if (o.eyes === "big") g += eye(80,o.ec) + eye(120,o.ec) + `<path d="M66 86 L92 90 M108 90 L134 86" fill="none" ${S}/>`;
+    if (o.eyes === "wink") g += eye(80,o.ec) + `<path d="M108 110 Q120 98 132 110" fill="none" ${S}/><path d="M66 88 L92 90 M108 92 L134 88" fill="none" ${S}/>`;
+    if (o.eyes === "happy") g += `<path d="M68 112 Q80 98 92 112 M108 112 Q120 98 132 112" fill="none" ${S}/>`;
+    if (o.eyes === "fire") g += eye(80,o.ec) + eye(120,o.ec) + `<path d="M62 82 L94 96 M106 96 L138 82" fill="none" stroke="${INK}" stroke-width="6" stroke-linecap="round"/>`;
+    g += `<path d="M62 128 l6-6 M69 130 l6-6 M125 130 l6-6 M132 128 l6-6" stroke="#ff6b6b" stroke-width="3" stroke-linecap="round"/>`;
+    if (o.mouth === "grin") g += `<path d="M78 132 Q100 162 122 132 Z" fill="#7a1b1b" ${S}/><path d="M83 134 L117 134 L114 141 L86 141Z" fill="#fff"/><path d="M90 150 Q100 144 110 150" fill="#ff6b6b"/>`;
+    if (o.mouth === "smile") g += `<path d="M86 136 Q100 148 114 136" fill="none" ${S}/>`;
+    if (o.mouth === "shout") g += `<path d="M82 132 Q100 128 118 132 Q116 160 100 160 Q84 160 82 132Z" fill="#7a1b1b" ${S}/><path d="M86 134 L114 134 L112 139 L88 139Z" fill="#fff"/>`;
+    if (o.acc === "glasses") g += `<g fill="none" ${S}><rect x="63" y="94" width="34" height="28" rx="9"/><rect x="103" y="94" width="34" height="28" rx="9"/><path d="M97 106 h6"/></g>`;
+    if (o.acc === "party") g += `<path d="M70 54 L102 -18 L130 50Z" fill="${o.acc2}" ${S}/><path d="M82 30 L122 20 M76 44 L126 36" stroke="#fff" stroke-width="5"/><circle cx="102" cy="-20" r="9" fill="#ffd23f" ${S}/>`;
+    if (o.acc === "bandage") g += `<rect x="114" y="122" width="24" height="10" rx="3" fill="#fff" ${S} transform="rotate(-20 126 127)"/>`;
+    if (o.acc === "bow") g += `<path d="M100 44 l-18 -12 v24z M100 44 l18 -12 v24z" fill="#ff3b2f" ${S}/><circle cx="100" cy="44" r="5" fill="#ff3b2f" ${S}/>`;
+    if (o.sweat) g += `<path d="M160 70 Q168 84 160 92 Q152 84 160 70Z" fill="#bfefff" ${S}/>`;
+    g += hand(o.gesture, o.hx ?? 168, o.hy ?? 196, o.skin);
+    if (o.gesture2) g += hand(o.gesture2, 32, 196, o.skin);
+    const inner = o.flip ? `<g transform="translate(200 0) scale(-1 1)">${g}</g>` : g;
+    return `<svg class="${o.cls} bob" viewBox="-20 -40 240 290" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
+  }
+  const sushi = `<svg class="c6 bob" viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 92 l-24 -34 M160 92 l24 -34" fill="none" ${S}/><circle cx="14" cy="54" r="10" fill="#fff" ${S}/><circle cx="186" cy="54" r="10" fill="#fff" ${S}/>
+    <rect x="30" y="74" width="140" height="78" rx="34" fill="#fff" ${S}/>
+    <path d="M24 82 Q30 40 100 38 Q170 40 176 82 Q100 70 24 82Z" fill="#ff8a4c" ${S}/>
+    <path d="M50 70 Q60 52 74 46 M84 66 Q94 48 108 42 M118 66 Q128 50 142 46" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+    <path d="M66 108 Q76 98 86 108 M114 108 Q124 98 134 108" fill="none" ${S}/>
+    <path d="M86 120 Q100 138 114 120Z" fill="#7a1b1b" ${S}/>
+    <path d="M58 124 l5-5 M64 126 l5-5 M132 126 l5-5 M138 124 l5-5" stroke="#ff6b6b" stroke-width="3" stroke-linecap="round"/>
+    <path d="M60 158 v10 M140 158 v10" ${S}/></svg>`;
+  $("crew").innerHTML =
+    person({cls:"c1",hair:"spiky",hc:"#3b2c8f",skin:"#ffd9b8",shirt:"#22c3e6",stripe:"#fff",eyes:"big",ec:"#2a3cff",mouth:"grin",gesture:"peace"}) +
+    person({cls:"c2",hair:"buns",hc:"#1f1f2e",skin:"#ffe2c6",shirt:"#ff3b2f",eyes:"wink",ec:"#b03a8a",mouth:"grin",acc:"bow",gesture:"peace",flip:true}) +
+    person({cls:"c3",hair:"cap",hc:"#ff3b2f",skin:"#e8b48c",shirt:"#ffd23f",stripe:"#10121f",eyes:"fire",ec:"#5a2d0c",mouth:"shout",acc:"bandage",gesture:"fist"}) +
+    person({cls:"c4",hair:"short",hc:"#f2a33a",skin:"#ffd9b8",shirt:"#2fbf71",eyes:"happy",mouth:"grin",acc:"glasses",gesture:"thumb",flip:true,sweat:true}) +
+    person({cls:"c5",hair:"spiky",hc:"#10121f",skin:"#f5c9a0",shirt:"#ffffff",stripe:"#ff3b2f",eyes:"big",ec:"#3a2a1a",mouth:"grin",acc:"party",acc2:"#22c3e6",gesture:"fist",gesture2:"fist"}) +
+    sushi;
+
+  /* ---------- Fit the whole invite to the screen ---------- */
+  const wrap = document.querySelector(".wrap");
+  function fit(){
+    const cs = getComputedStyle(document.documentElement);
+    const avail = document.documentElement.clientHeight - parseFloat(cs.paddingTop||0) - parseFloat(cs.paddingBottom||0);
+    wrap.style.zoom = ""; wrap.style.minHeight = "";
+    const need = wrap.scrollHeight;
+    if (need > avail + 1){
+      const k = Math.max(.6, avail / need);
+      wrap.style.zoom = k.toFixed(4);
+      wrap.style.minHeight = (avail / k) + "px";
+    }
+  }
+  fit(); addEventListener("resize", fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+
+  /* ---------- Countdown ---------- */
+  function tick(){
+    const diff = PARTY - Date.now();
+    if (diff <= 0){ $("count").hidden = true; $("count-done").hidden = false; return; }
+    const s = Math.floor(diff/1000);
+    $("cd-d").textContent = Math.floor(s/86400);
+    $("cd-h").textContent = pad(Math.floor(s%86400/3600));
+    $("cd-m").textContent = pad(Math.floor(s%3600/60));
+    $("cd-s").textContent = pad(s%60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ---------- RSVP ---------- */
+  let qtd = 1;
+  const setQ = v => { qtd = Math.max(1, Math.min(10, v)); $("qtd").textContent = qtd; };
+  $("menos").onclick = () => setQ(qtd-1);
+  $("mais").onclick = () => setQ(qtd+1);
+  const vai = () => document.querySelector('input[name="vai"]:checked').value === "sim";
+  document.querySelectorAll('input[name="vai"]').forEach(r => r.addEventListener("change", () => { $("qtd-box").hidden = !vai(); }));
+  function waLink(){
+    const nome = $("nome").value.trim(), msg = $("msg").value.trim();
+    let t = vai()
+      ? `Oi! Aqui é ${nome}. Confirmo presença no aniversário do Rafael, sábado 24/10 às 13h no Kaishi. Seremos ${qtd} pessoa${qtd>1?"s":""}. 🍣`
+      : `Oi! Aqui é ${nome}. Infelizmente não vou poder ir ao aniversário do Rafael no sábado, 24/10.`;
+    if (msg) t += `\nRecado: ${msg}`;
+    return `https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
+  }
+  $("form").addEventListener("submit", e => {
+    e.preventDefault();
+    if (!$("nome").value.trim()){ $("err").hidden = false; $("nome").focus(); return; }
+    $("err").hidden = true;
+    const url = waLink();
+    $("wa-again").href = url;
+    $("done-t").textContent = vai() ? "Arigatou! Te espero lá!" : "Valeu por avisar!";
+    try { window.open(url, "_blank", "noopener"); } catch(_){}
+    $("form").hidden = true; $("done").hidden = false;
+    try { localStorage.setItem("rsvp-nome", $("nome").value.trim()); } catch(_){}
+  });
+  $("edit").onclick = () => { $("done").hidden = true; $("form").hidden = false; };
+  try { const n = localStorage.getItem("rsvp-nome"); if (n) $("nome").value = n; } catch(_){}
+  $("copy").onclick = () => {
+    const ok = () => { $("copy").textContent = "Copiado"; setTimeout(()=>$("copy").textContent="Copiar",1500); };
+    const sel = () => { const r = document.createRange(); r.selectNodeContents($("fone")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    try { navigator.clipboard.writeText("11983429336").then(ok, sel); } catch(_){ sel(); }
+  };
+
+  /* ---------- Sheets ---------- */
+  function openSheet(id){ const el=$(id); el.hidden=false; const f=el.querySelector("input,button:not(.x)"); if(f) setTimeout(()=>f.focus(),50); }
+  function closeAll(){ document.querySelectorAll(".sheet").forEach(x=>x.hidden=true); }
+  $("open-rsvp").onclick = () => openSheet("sheet");
+  $("open-owner").onclick = () => openSheet("osheet");
+  document.querySelectorAll("[data-close]").forEach(b => b.onclick = closeAll);
+  document.querySelectorAll(".sheet").forEach(sh => sh.addEventListener("click", e => { if (e.target === sh) closeAll(); }));
+  addEventListener("keydown", e => { if (e.key === "Escape") closeAll(); });
+
+  /* ---------- Owner-only guest list ---------- */
+  (async () => {
+    const claude = window.claude; if (!claude || !claude.use) return;
+    const user = await claude.use("user");
+    if (!user || !(await user.isOwner())) return;
+    const db = await claude.use("db"); if (!db) return;
+    $("open-owner").hidden = false;
+    const col = db.collection("lista");
+    col.orderBy("t","asc").onSnapshot(snap => {
+      const ul = $("olist"); ul.textContent = "";
+      let pess=0, sim=0, nao=0;
+      snap.docs.forEach(d => {
+        const g = d.data(); const n = Number(g.qtd)||0;
+        if (n>0){ sim++; pess+=n; } else nao++;
+        const li = document.createElement("li");
+        const nm = document.createElement("span"); nm.textContent = g.nome;
+        const pl = document.createElement("span"); pl.className = "pill"+(n>0?"":" no"); pl.textContent = n>0 ? n+(n>1?" pessoas":" pessoa") : "não vai";
+        const del = document.createElement("button"); del.type="button"; del.textContent="×"; del.setAttribute("aria-label","Remover "+g.nome);
+        del.onclick = () => col.doc(d.id).delete().catch(()=>{});
+        li.append(nm,pl,del); ul.append(li);
+      });
+      $("o-empty").hidden = !snap.empty;
+      $("t-pess").textContent = pess; $("t-sim").textContent = sim; $("t-nao").textContent = nao;
+    }, () => {});
+    $("oform").addEventListener("submit", async e => {
+      e.preventDefault();
+      const nome = $("o-nome").value.trim(); if (!nome) return;
+      const q = Math.max(0, parseInt($("o-qtd").value,10)||0);
+      try { await col.add({nome, qtd:q, t:Date.now()}); $("o-nome").value=""; $("o-qtd").value=1; $("o-nome").focus(); } catch(_){}
+    });
+  })();
+})();
+</script>
+
+</body>
+</html>
